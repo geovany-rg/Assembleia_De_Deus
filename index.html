@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assembleia de Deus em BH - Portal Informativo</title>
+    <title>Assembleia de Deus em BH - Portal Oficial</title>
     <style>
-        /* CONFIGURAÇÕES GERAIS - LEVE E RESPONSIVO */
+        /* CONFIGURAÇÕES GERAIS - LAYOUT ULTRA LEVE */
         * {
             margin: 0;
             padding: 0;
@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa; /* Fundo claro e clean */
+            background: #f8f9fa;
             color: #333333;
             line-height: 1.6;
         }
@@ -22,7 +22,7 @@
         /* HEADER INSTITUCIONAL */
         header {
             background: #ffffff;
-            border-bottom: 3px solid #d94111; /* Linha de destaque Laranja */
+            border-bottom: 3px solid #d94111; /* Laranja */
             padding: 25px 20px;
             text-align: center;
         }
@@ -43,7 +43,7 @@
 
         /* MENU DE NAVEGAÇÃO STICKY */
         nav {
-            background: #1e2229; /* Tom escuro formal para dar contraste */
+            background: #1e2229;
             padding: 12px;
             text-align: center;
             position: sticky;
@@ -54,28 +54,27 @@
         nav a {
             color: #e0e0e0;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 10px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: color 0.2s ease;
         }
 
         nav a:hover {
-            color: #ffcc00; /* Destaque Amarelo Ouro no foco */
+            color: #ffcc00; /* Amarelo Ouro */
         }
 
-        /* BANNER COM GRADIENTE LARANJA/VERMELHO */
+        /* BANNER */
         .banner {
             background: linear-gradient(135deg, #d94111 0%, #990000 100%);
             color: #ffffff;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
         }
 
         .banner h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
-            color: #ffffff;
         }
 
         .banner p {
@@ -85,11 +84,12 @@
             margin: auto;
         }
 
-        /* BLOCOS DE CONTEÚDO */
+        /* CONTAINERS E SEÇÕES */
         .container {
-            padding: 45px 20px;
-            max-width: 960px;
+            padding: 40px 20px;
+            max-width: 1100px;
             margin: auto;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .container h2 {
@@ -100,7 +100,6 @@
             padding-bottom: 6px;
         }
 
-        /* Detalhe embaixo dos títulos */
         .container h2::after {
             content: '';
             position: absolute;
@@ -109,19 +108,19 @@
             width: 40px;
             height: 3px;
             background-color: #d94111;
-            border-radius: 2px;
         }
 
         .container p {
             color: #555555;
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 15px;
+            text-align: justify;
         }
 
-        /* GRID TOTALMENTE RESPONSIVA (Sem quebras) */
-        .events-grid {
+        /* LAYOUT DE CARDS EM GRID */
+        .grid-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
@@ -132,38 +131,59 @@
             border-radius: 6px;
             border: 1px solid #e2e8f0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            border-color: #d94111;
         }
 
         .card h3 {
-            color: #2b2b2b;
-            margin-bottom: 8px;
+            color: #990000;
             font-size: 1.1rem;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #ffe6cc;
+            padding-bottom: 4px;
         }
 
-        .event-day {
-            color: #990000 !important; /* Vermelho nos dias */
-            font-weight: 600;
-            font-size: 0.9rem !important;
-        }
-
-        .card.department p {
+        .card p {
             font-size: 0.9rem;
-            color: #666666;
+            margin-bottom: 5px;
         }
 
-        /* REPRODUTOR DE VÍDEO SEGURO E LEVE */
+        /* TABELAS PARA DADOS EM MASSA (REGIONAIS E CONGREGAÇÕES) */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 15px;
+            background: #ffffff;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #1e2229;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #fffaf5;
+        }
+
+        /* REPRODUTOR DE VÍDEO */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* Mantém proporção 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            max-width: 100%;
             background: #000;
             border-radius: 6px;
             margin-top: 15px;
@@ -171,197 +191,384 @@
 
         .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
         }
 
-        /* BOTÃO INTERATIVO DA LIDERANÇA */
-        button {
+        /* BOTÕES DE EXPANSÃO / INTERAÇÃO */
+        .btn-toggle {
             background: #d94111;
             color: #ffffff;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 4px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 10px;
             transition: background 0.2s ease;
         }
 
-        button:hover {
-            background: #b8330c;
+        .btn-toggle:hover {
+            background: #990000;
         }
 
-        .msg-box {
+        .hidden-content {
+            display: none;
             margin-top: 15px;
             padding: 15px;
             background: #ffffff;
-            border-left: 4px solid #990000;
-            border-radius: 0 4px 4px 0;
-            color: #444444;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            display: none; /* Inicia oculto */
+            border-left: 4px solid #d94111;
+            border-radius: 4px;
         }
 
-        /* INFORMAÇÕES DE CONTATO */
-        .contact-box p {
-            margin-bottom: 10px;
-            color: #555555;
-        }
-
-        .contact-box strong {
-            color: #2b2b2b;
-        }
-
-        /* RODAPÉ SUTIL */
+        /* RODAPÉ */
         footer {
             background: #1e2229;
             color: #a0aec0;
             text-align: center;
             padding: 25px;
-            margin-top: 50px;
-            font-size: 0.85rem;
+            margin-top: 40px;
+            font-size: 0.8rem;
         }
 
-        /* AJUSTES PARA TELAS MENORES (CELULAR) */
+        /* RESPONSIVIDADE MOBILE */
         @media(max-width: 768px) {
-            nav {
-                padding: 8px;
-            }
             nav a {
                 display: inline-block;
-                margin: 5px 10px;
-                font-size: 0.8rem;
+                margin: 4px 6px;
+                font-size: 0.75rem;
             }
-            .banner h2 {
-                font-size: 1.6rem;
-            }
-            header h1 {
-                font-size: 1.5rem;
-            }
+            .container h2 { font-size: 1.2rem; }
+            header h1 { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="header-content">
-        <h1>Assembleia de Deus</h1>
-        <p>Ministério de Belo Horizonte</p>
-    </div>
+    <h1>Assembleia de Deus</h1>
+    <p>Ministério de Belo Horizonte</p>
 </header>
 
 <nav>
-    <a href="#sobre">Nossa História</a>
-    <a href="#cultos">Cultos & Agenda</a>
-    <a href="#ministerios">Ministérios</a>
-    <a href="#midia">Cultos Online</a>
-    <a href="#lideranca">Liderança</a>
+    <a href="#inicio">Início</a>
+    <a href="#institucional">Institucional</a>
+    <a href="#contribua">Contribua</a>
+    <a href="#departamentos">Departamentos</a>
+    <a href="#regionais">Regionais</a>
+    <a href="#congregaCOes">Congregações</a>
+    <a href="#midia">Mídia</a>
     <a href="#contato">Contato</a>
 </nav>
 
-<section class="banner">
-    <div class="banner-content">
-        <h2>Bem-vindo à Assembleia de Deus - Central BH</h2>
-        <p>Uma igreja viva que adora ao Senhor e serve à comunidade com amor.</p>
-    </div>
+<section class="banner" id="inicio">
+    <h2>Central do Visitante</h2>
+    <p>Somos uma igreja frutífera, acolhedora e discipuladora. É um prazer ter você aqui!</p>
 </section>
 
 <main>
-    <!-- SEÇÃO SOBRE -->
-    <section id="sobre" class="container">
-        <h2>Sobre a Igreja</h2>
-        <p>
-            A Assembleia de Deus em Belo Horizonte iniciou sua trajetória em 1927. Desde então, sob a liderança do Ministério, tem sido um farol de evangelização, ação social e edificação espiritual na capital mineira e região metropolitana.
-        </p>
+    <!-- SEÇÃO QUEM SOMOS & O QUE CREMOS -->
+    <section id="institucional" class="container">
+        <h2>Quem Somos</h2>
+        <p>Nossa história começou em março de 1927 e, passados quase cem anos, seguimos buscando cumprir o mandamento de Jesus de "ir" e "frutificar" (João 15.16). Nossa igreja foi responsável pela evangelização de quase toda Minas Gerais, sendo a origem de mais de três mil Assembleias de Deus no interior do estado.</p>
+        <p>Atualmente, nosso campo de trabalho se restringe a uma parte da Grande BH. O nosso Templo Central está localizado à Rua São Paulo, 1341, Lourdes, na capital mineira. Entretanto, temos quase 500 congregações, distribuídas nas 36 regionais da ADBH na cidade de Belo Horizonte e na região metropolitana.</p>
+        
+        <h2>O Que Cremos</h2>
+        <p>O nosso credo é um resumo da Declaração de Fé das Assembleias de Deus no Brasil. Ele consiste de 16 pontos doutrinários fundamentais.</p>
+        <button class="btn-toggle" onclick="toggleConteudo('credo-box')">Ver Declaração de Fé</button>
+        
+        <div id="credo-box" class="hidden-content">
+            <p><strong>1.</strong> Na inspiração divina verbal e plenária da Bíblia Sagrada (2 Tm 3.14-17);</p>
+            <p><strong>2.</strong> Em um só Deus, eternamente subsistente em três pessoas distintas: o Pai, o Filho e o Espírito Santo (Dt 6.4; Mt 28.19);</p>
+            <p><strong>3.</strong> No Senhor Jesus Cristo, o Filho Unigênito de Deus, plenamente Deus, plenamente Homem (Jo 3.16);</p>
+            <p><strong>4.</strong> No Espírito Santo, a terceira pessoa da Santíssima Trindade (2 Co 13.13);</p>
+            <p><strong>5.</strong> Na pecaminosidade do homem, que o destituiu da glória de Deus (Rm 3.23);</p>
+            <p><strong>6.</strong> Na necessidade absoluta do novo nascimento pela graça de Deus (Jo 3.3-8);</p>
+            <p><strong>7.</strong> No perdão dos pecados e na salvação plena pela fé (At 10.43);</p>
+            <p><strong>8.</strong> Na Igreja, que é o corpo de Cristo (1 Co 12.27);</p>
+            <p><strong>9.</strong> No batismo bíblico efetuado por imersão em águas (Mt 28.19);</p>
+            <p><strong>10.</strong> Na necessidade de termos uma vida santa e irrepreensível (1 Pe 1.15);</p>
+            <p><strong>11.</strong> No batismo no Espírito Santo com evidência física do falar em línguas (At 2.4);</p>
+            <p><strong>12.</strong> Na atualidade dos dons espirituais distribuídos pelo Espírito Santo (1 Co 12.1-12);</p>
+            <p><strong>13.</strong> Na segunda vinda de Cristo, em duas fases distintas (1 Ts 4.16,17);</p>
+            <p><strong>14.</strong> No comparecimento ante o Tribunal de Cristo (2 Co 5.10);</p>
+            <p><strong>15.</strong> No Juízo Final e na eternidade para fiéis e infiéis (Ap 20.11-15);</p>
+            <p><strong>16.</strong> Que o casamento foi instituído por Deus como união entre um homem e uma mulher (Gn 2.24).</p>
+        </div>
+
+        <h2 style="margin-top:30px;">Pastor Presidente & Diretoria</h2>
+        <p><strong>Pr. Paulo Cézar Pereira:</strong> Casado com a irmã Nanci Pereira, serve ao Senhor ocupando a presidência da Assembleia de Deus Ministério Belo Horizonte. Atualmente serve como Presidente do vasto campo belorizontino que conta com mais de quarenta mil membros distribuídos por suas 483 congregações.</p>
+        <p><strong>Diretoria Geral:</strong> Pr. Laércio Rodrigues (1º Vice-Presidente), Pr. Benedito Celso Côrtes (2º Vice-Presidente), Pr. Josué Fernandes Dias (Relações Ministeriais), Pr. Antônio de Paulo (Financeiro), Pr. João Carlos Ferreira (Administrativo), Pr. Rogério Aparecido Soares (Obras).</p>
     </section>
 
-    <!-- SEÇÃO CULTOS -->
-    <section id="cultos" class="container">
-        <h2>Horários dos Cultos</h2>
-        <div class="events-grid">
+    <!-- SEÇÃO CONTRIBUA (PIX E CONTAS DA REGIONAL SEM CNPJ) -->
+    <section id="contribua" class="container">
+        <h2>Contribua</h2>
+        <p>Olá, irmão(ã), a paz do Senhor. Se você é membro da AD-BH e pretende contribuir para a sua Regional, os dízimos e as ofertas são os meios pelos quais a obra do Senhor é mantida. Os recursos são usados na pregação do evangelho, obras missionárias, ações sociais e manutenção dos templos.</p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Regional</th>
+                        <th>Agência</th>
+                        <th>Conta Chave</th>
+                        <th>Chave Pix / Identificador</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>TEMPLO CENTRAL</td><td>465</td><td>393929-4</td><td>Celular: 31984304763</td></tr>
+                    <tr><td>APARECIDA</td><td>465</td><td>396677-1</td><td>Agência/Conta</td></tr>
+                    <tr><td>BAIRRO DAS INDUSTRIAS</td><td>465</td><td>396706-9</td><td>Agência/Conta</td></tr>
+                    <tr><td>BARREIRO</td><td>465</td><td>396714-0</td><td>Agência/Conta</td></tr>
+                    <tr><td>BOA VISTA</td><td>465</td><td>396675-5</td><td>Agência/Conta</td></tr>
+                    <tr><td>CÉU AZUL</td><td>465</td><td>396671-2</td><td>Agência/Conta</td></tr>
+                    <tr><td>CONTAGEM</td><td>465</td><td>3629-3</td><td>Agência/Conta</td></tr>
+                    <tr><td>ELDORADO</td><td>465</td><td>3656-0</td><td>Agência/Conta</td></tr>
+                    <tr><td>ESMERALDAS</td><td>465</td><td>3657-9</td><td>Agência/Conta</td></tr>
+                    <tr><td>GUARANI</td><td>465</td><td>396673-9</td><td>Agência/Conta</td></tr>
+                    <tr><td>IBIRITÉ</td><td>465</td><td>3662-5</td><td>Agência/Conta</td></tr>
+                    <tr><td>INDUSTRIAL</td><td>465</td><td>3664-1</td><td>Agência/Conta</td></tr>
+                    <tr><td>ITATIAIA</td><td>465</td><td>396693-3</td><td>Agência/Conta</td></tr>
+                    <tr><td>JAQUELINE</td><td>465</td><td>3668-4</td><td>Agência/Conta</td></tr>
+                    <tr><td>JARD. MONTANHES</td><td>465</td><td>3688-9</td><td>Agência/Conta</td></tr>
+                    <tr><td>JARDIM DA GLORIA</td><td>465</td><td>3671-4</td><td>Agência/Conta</td></tr>
+                    <tr><td>JARDIM LAGUNA</td><td>465</td><td>3687-0</td><td>Agência/Conta</td></tr>
+                    <tr><td>JOÃO PINHEIRO</td><td>465</td><td>3714-1</td><td>Agência/Conta</td></tr>
+                    <tr><td>MARIO CAMPOS</td><td>465</td><td>16428-3</td><td>Agência/Conta</td></tr>
+                    <tr><td>MILIONARIOS</td><td>465</td><td>16446-1</td><td>Agência/Conta</td></tr>
+                    <tr><td>MORRO ALTO</td><td>465</td><td>16430-5</td><td>Agência/Conta</td></tr>
+                    <tr><td>NACIONAL</td><td>465</td><td>16432-1</td><td>Agência/Conta</td></tr>
+                    <tr><td>NOVA CONTAGEM</td><td>465</td><td>17032-1</td><td>Agência/Conta</td></tr>
+                    <tr><td>NOVA GRANADA</td><td>465</td><td>16444-5</td><td>Agência/Conta</td></tr>
+                    <tr><td>NOVO GLORIA</td><td>465</td><td>396708-5</td><td>Agência/Conta</td></tr>
+                    <tr><td>PAMPULHA</td><td>465</td><td>396683-6</td><td>Agência/Conta</td></tr>
+                    <tr><td>PARQUE JARDIM</td><td>465</td><td>396679-8</td><td>Agência/Conta</td></tr>
+                    <tr><td>RIB. DAS NEVES</td><td>465</td><td>16449-6</td><td>Agência/Conta</td></tr>
+                    <tr><td>SABARÁ</td><td>465</td><td>16454-2</td><td>Agência/Conta</td></tr>
+                    <tr><td>SALGADO FILHO</td><td>465</td><td>396681-0</td><td>Agência/Conta</td></tr>
+                    <tr><td>SANTA LUZIA</td><td>465</td><td>16452-6</td><td>Agência/Conta</td></tr>
+                    <tr><td>SÃO BENEDITO</td><td>465</td><td>16435-6</td><td>Agência/Conta</td></tr>
+                    <tr><td>SÃO BERNARDO</td><td>465</td><td>396712-3</td><td>Agência/Conta</td></tr>
+                    <tr><td>SÃO GABRIEL</td><td>465</td><td>396710-7</td><td>Agência/Conta</td></tr>
+                    <tr><td>SÃO LUIZ</td><td>465</td><td>17030-5</td><td>Agência/Conta</td></tr>
+                    <tr><td>SÃO MARCOS</td><td>465</td><td>396716-6</td><td>Agência/Conta</td></tr>
+                    <tr><td>SARZEDO</td><td>465</td><td>17031-3</td><td>Agência/Conta</td></tr>
+                    <tr><td>SERRA DO CAPIVARI</td><td>465</td><td>396691-7</td><td>Agência/Conta</td></tr>
+                    <tr><td>VALE DO JATOBA</td><td>465</td><td>396687-9</td><td>Agência/Conta</td></tr>
+                    <tr><td>VENDA NOVA</td><td>465</td><td>396689-5</td><td>Agência/Conta</td></tr>
+                    <tr><td>VENEZA</td><td>465</td><td>16456-9</td><td>Agência/Conta</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE DEPARTAMENTOS -->
+    <section id="departamentos" class="container">
+        <h2>Departamentos</h2>
+        <div class="grid-layout">
             <div class="card">
-                <h3>Culto de Doutrina & Ensino</h3>
-                <p class="event-day">🗓️ Terça-feira às 19h30</p>
-            </div>
-            <div class="card">
-                <h3>Libertação & Oração</h3>
-                <p class="event-day">🗓️ Quinta-feira às 19h30</p>
+                <h3>Adolescentes (UNAAD-BH)</h3>
+                <p>Promove unidade e crescimento dos adolescentes. Concentrações bimestrais no Templo Sede e Congresso Anual.</p>
+                <p><strong>Liderança:</strong> Pr. Cilas Ronaldo / Pr. Geovan Carlos</p>
             </div>
             <div class="card">
                 <h3>Escola Bíblica Dominical (EBD)</h3>
-                <p class="event-day">🗓️ Domingo às 09h00</p>
+                <p>Ensino da Palavra de Deus em todas as congregações utilizando as lições da CPAD e promovendo a capacitação de professores.</p>
+                <p><strong>Liderança:</strong> Pr. Marcos Veríssimo / Pr. Ricardo Leite</p>
             </div>
             <div class="card">
-                <h3>Culto de Celebração da Família</h3>
-                <p class="event-day">🗓️ Domingo às 18h00</p>
+                <h3>Departamento Infantil</h3>
+                <p>Trabalhos focados no ensino bíblico contextualizado para crianças e treinamento da liderança infantil regional.</p>
+                <p><strong>Liderança:</strong> Irmã Elcy Jales</p>
+            </div>
+            <div class="card">
+                <h3>Jovens (Conexão Jovem)</h3>
+                <p>Reunem-se mensalmente no primeiro sábado de cada mês no Templo Sede. Realização anual do Congresso Graça Brasil.</p>
+                <p><strong>Liderança:</strong> Pr. Lucas Ferraz / Pr. Samuel Assis</p>
+            </div>
+            <div class="card">
+                <h3>Missões (Projeto IDE)</h3>
+                <p>Atuação com foco na evangelização local e apoio a projetos rurais e transculturais, visando expandir o Reino de Deus.</p>
+                <p><strong>Liderança:</strong> Pr. Douglas Aguiar (Coordenador do Projeto)</p>
+            </div>
+            <div class="card">
+                <h3>Feminino / Círculo de Oração</h3>
+                <p>Coordenação de reuniões e orações com as mulheres. Tradicional Círculo de Oração todas as quartas-feiras às 14h.</p>
+                <p><strong>Liderança:</strong> Irmã Nanci Pereira (Presidente) e equipe de diretoras.</p>
             </div>
         </div>
     </section>
 
-    <!-- SEÇÃO MINISTÉRIOS -->
-    <section id="ministerios" class="container">
-        <h2>Nossos Ministérios</h2>
-        <div class="events-grid">
-            <div class="card department">
-                <h3>UMADBH</h3>
-                <p>União de Mocidade da Assembleia de Deus de BH</p>
-            </div>
-            <div class="card department">
-                <h3>UFADBH</h3>
-                <p>União Feminina (Círculo de Oração)</p>
-            </div>
-            <div class="card department">
-                <h3>UADBH</h3>
-                <p>Ministério com Crianças e Juniores</p>
-            </div>
+    <!-- SEÇÃO REGIONAIS (ORGANIZADO LADO A LADO) -->
+    <section id="regionais" class="container">
+        <h2>Pastores Regionais</h2>
+        <p>Abaixo estão os pastores responsáveis pela administração espiritual das nossas Regionais:</p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Regional</th>
+                        <th>Pastor Responsável</th>
+                        <th>Regional</th>
+                        <th>Pastor Responsável</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Aparecida/Ipiranga</td><td>Geraldo Roberto Martins</td><td>Jardim Laguna/Liberdade</td><td>Daniel Barroso</td></tr>
+                    <tr><td>Bairro das Indústrias</td><td>Aguinaldo Roberto de Azevedo</td><td>Jardim Montanhês/Novo Glória</td><td>Geovan Carlos de Souza</td></tr>
+                    <tr><td>Barreiro/Milionários</td><td>Paulo César Rocha Araújo</td><td>Jardim da Glória</td><td>Jarbas Rodrigues</td></tr>
+                    <tr><td>Boa Vista</td><td>Diomário Antunes</td><td>João Pinheiro</td><td>Rogério Aparecido Soares</td></tr>
+                    <tr><td>Contagem</td><td>Jerônimo Anildo</td><td>Morro Alto</td><td>Mouacir Fidercino</td></tr>
+                    <tr><td>Céu Azul</td><td>Washington Pereira de Souza</td><td>Nacional</td><td>Orestes Corlaite</td></tr>
+                    <tr><td>Eldorado</td><td>Antônio de Paulo Gomes</td><td>Nova Contagem</td><td>Marcos Otaciliano do Amaral</td></tr>
+                    <tr><td>Esmeraldas</td><td>Welington Bicalho Pinto</td><td>Nova Granada</td><td>Rodrigo Souza</td></tr>
+                    <tr><td>Guarani/São Bernardo</td><td>João Carlos Ferreira de Oliveira</td><td>Pampulha</td><td>Laércio Rodrigues da Silva</td></tr>
+                    <tr><td>Ibirité</td><td>Antônio Narciso</td><td>Parque Jardim</td><td>Joel Nunes dos Santos</td></tr>
+                    <tr><td>Industrial</td><td>Ricardo Leite</td><td>Ribeirão das Neves</td><td>Josué Fernandes Dias</td></tr>
+                    <tr><td>Itatiaia</td><td>Samuel de Assis</td><td>Sabará</td><td>Maurinho Alves Lopes</td></tr>
+                    <tr><td>Jaqueline</td><td>Adonias Policarpo</td><td>Salgado Filho</td><td>André Luiz de Carvalho</td></tr>
+                    <tr><td>Santa Luzia</td><td>Paulo Cézar Máximo</td><td>São Benedito</td><td>Ariel Eugênio</td></tr>
+                    <tr><td>Sarzedo / Mário Campos</td><td>Alverino Pereira</td><td>São Gabriel</td><td>Azarias Ramos</td></tr>
+                    <tr><td>Sarzedo / Serra Capivari</td><td>Joel Furtado</td><td>São Luiz</td><td>Adonias Policarpo da Silva</td></tr>
+                    <tr><td>São Marcos</td><td>Cilas Ronaldo</td><td>Vale do Jatobá</td><td>Rodney Souza</td></tr>
+                    <tr><td>Venda Nova</td><td>Benedito Cortes</td><td>Veneza</td><td>Edson de Souza Ramos</td></tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
-    <!-- SEÇÃO MÍDIA / TRANSMISSÕES -->
+    <!-- SEÇÃO CONGREGAÇÕES (TABELA LIMPA) -->
+    <section id="congregaCOes" class="container">
+        <h2>Endereço das Congregações</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bairro / Congregação</th>
+                        <th>Endereço</th>
+                        <th>Cidade</th>
+                        <th>Regional</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Adelmolândia</td><td>Rua José Rodrigues Santos, 589</td><td>Sabará</td><td>Regional Sabará</td></tr>
+                    <tr><td>Adeodato</td><td>Rua Demóstenes de Melo, 242</td><td>Santa Luzia</td><td>Regional Santa Luzia</td></tr>
+                    <tr><td>Alto Cabral</td><td>Rua Amoreira, 19</td><td>Sabará</td><td>Regional Sabará</td></tr>
+                    <tr><td>Alto Cruzeiro</td><td>Rua Itagi, 250</td><td>Sabará</td><td>Regional Sabará</td></tr>
+                    <tr><td>Alto Santo Antonio</td><td>Rua LÍbia, 907</td><td>Santa Luzia</td><td>Regional Jaqueline</td></tr>
+                    <tr><td>Alto Vera Cruz</td><td>Rua Padre Feijó, 1212</td><td>Belo Horizonte</td><td>Regional Parque Jardim</td></tr>
+                    <tr><td>Alvorada</td><td>Rua Jaboticatubas, 380</td><td>Sabará</td><td>Boa Vista</td></tr>
+                    <tr><td>Alípio de Melo</td><td>Rua Mário de Melo, 43</td><td>Belo Horizonte</td><td>Regional Jardim Montanhês</td></tr>
+                    <tr><td>Amabel</td><td>Rua Mato Dentro</td><td>Ribeirão das Neves</td><td>Regional Veneza</td></tr>
+                    <tr><td>Anchieta</td><td>Rua Belmiro Gomes</td><td>Sarzedo</td><td>Regional Sarzedo / Mario Campos</td></tr>
+                    <tr><td>Andiroba</td><td>Primeiro de Maio, 371</td><td>Esmeraldas</td><td>Regional Industrial</td></tr>
+                    <tr><td>Aparecida</td><td>Rua Henrique Dias, 196</td><td>Belo Horizonte</td><td>Aparecida</td></tr>
+                    <tr><td>Pedreira - Santo Andre 2</td><td>Rua Cantagalo, 28</td><td>Belo Horizonte</td><td>Aparecida</td></tr>
+                    <tr><td>Araguaia</td><td>Rua Taguatinga, 279</td><td>Belo Horizonte</td><td>Barreiro</td></tr>
+                    <tr><td>Aarão Reis B</td><td>Rua Nossa Senhora da Piedade, 193</td><td>Belo Horizonte</td><td>Regional Guarani</td></tr>
+                    <tr><td>Iolanda</td><td>Rua Nossa Senhora da Piedade, 193</td><td>Belo Horizonte</td><td>Regional Ribeirão das Neves</td></tr>
+                    <tr><td>Asteca (são Benedito)</td><td>Rua João Ribeiro Viana, 58</td><td>Santa Luzia</td><td>Regional Jaqueline</td></tr>
+                    <tr><td>Bairro das Indústrias</td><td>Rua Presidente Costa e Silva, 572</td><td>Belo Horizonte</td><td>Bairro das Indústrias</td></tr>
+                    <tr><td>Barcelona</td><td>Rua Dias Gomes, 500</td><td>Ribeirão das Neves</td><td>Regional Ribeirão das Neves</td></tr>
+                    <tr><td>Baronesa</td><td>Rua Polônia, 9</td><td>Santa Luzia</td><td>Regional Jaqueline</td></tr>
+                    <tr><td>Barroquinha</td><td>Beco Vinicius de Moraes</td><td>Belo Horizonte</td><td>Regional Serra Capivari</td></tr>
+                    <tr><td>Beija Flor</td><td>Rua Tucano, 359</td><td>Contagem</td><td>Regional São Luiz</td></tr>
+                    <tr><td>Beira Linha</td><td>Rua Padre Miguel Eugênio, 421</td><td>Santa Luzia</td><td>Regional Santa Luzia</td></tr>
+                    <tr><td>Bela Vista</td><td>Av. José Diniz e Silva, 260</td><td>Contagem</td><td>Eldorado</td></tr>
+                    <tr><td>Bela Vista - Sarzedo</td><td>Rua Geraldo Damascena</td><td>Mário Campos</td><td>Regional Sarzedo / Mario Campos</td></tr>
+                    <tr><td>Belo Vale</td><td>Rua Seis, 89</td><td>Santa Luzia</td><td>Regional São Benedito</td></tr>
+                    <tr><td>Belvedere</td><td>Rua Tarcisio Maestro Drumont</td><td>Ribeirão das Neves</td><td>Regional Veneza</td></tr>
+                    <tr><td>Nova Esperança</td><td>Avenida Venceslau Brás, 18</td><td>Santa Luzia</td><td>Regional Santa Luzia</td></tr>
+                    <tr><td>Boa Vista</td><td>Rua Delfim Moreira, 55</td><td>Belo Horizonte</td><td>Boa Vista</td></tr>
+                    <tr><td>Bom Destino</td><td>Rua dos Jatobás</td><td>Santa Luzia</td><td>Regional São Marcos</td></tr>
+                    <tr><td>Bom Jesus</td><td>Rua Maria Aparecida, 179</td><td>Contagem</td><td>Regional Nacional</td></tr>
+                    <tr><td>Palmeiras</td><td>Rua Maria Aparecida, 179</td><td>Contagem</td><td>Regional Salgado Filho</td></tr>
+                    <tr><td>Jaboticatubas</td><td>Rua Enestino Moreira Marques, 427</td><td>Jaboticatubas</td><td>Regional Santa Luzia</td></tr>
+                    <tr><td>Imperial / Petropolis</td><td>Rua Ceará, 790</td><td>Santa Luzia</td><td>Regional Santa Luzia</td></tr>
+                    <tr><td>Bonsucesso</td><td>Belo Horizonte</td><td>Bonsucesso - Barreiro</td><td>Barreiro</td></tr>
+                    <tr><td>Borba Gato</td><td>Rua 1</td><td>Sabará</td><td>Regional São Marcos</td></tr>
+                    <tr><td>Bosque de Ibirite</td><td>Rua Laudelina Rosa Correa, 155</td><td>Ibirité</td><td>Regional Ibirité</td></tr>
+                    <tr><td>Santa Cruz</td><td>Rua Sabrina Ferreira de Oliveira, 340</td><td>Belo Horizonte</td><td>Barreiro</td></tr>
+                    <tr><td>Brasília</td><td>Rua Iolanda Barbosa</td><td>Sarzedo</td><td>Regional Sarzedo / Mario Campos</td></tr>
+                    <tr><td>Cabana</td><td>Rua Monsenhor Paulo Brasil, 221</td><td>Belo Horizonte</td><td>Bairro das Indústrias</td></tr>
+                    <tr><td>Cachoeirinha</td><td>Rua Itapetinga, 456</td><td>Belo Horizonte</td><td>Aparecida</td></tr>
+                    <tr><td>Caiçara</td><td>Rua Alabadina, 505</td><td>Belo Horizonte</td><td>Aparecida</td></tr>
+                    <tr><td>Lar Pescador</td><td>Rua Sebastião Fernandes Brandão, 45</td><td>Belo Horizonte</td><td>Bairro das Indústrias</td></tr>
+                    <tr><td>California 2</td><td>Rua Sebastião Fernandes Brandao, 45</td><td>Belo Horizonte</td><td>Regional João Pinheiro</td></tr>
+                    <tr><td>Califórnia</td><td>Rua Coronel Antônio Sia, 189</td><td>Belo Horizonte</td><td>Regional João Pinheiro</td></tr>
+                    <tr><td>Camargos</td><td>Rua Itaunense, 343</td><td>Belo Horizonte</td><td>Bairro das Indústrias</td></tr>
+                    <tr><td>Campo Alegre</td><td>Rua Osório Duque Estrada, 498</td><td>Belo Horizonte</td><td>Regional Guarani</td></tr>
+                    <tr><td>Campo Belo</td><td>Rua Campo Belo</td><td>Mário Campos</td><td>Regional Sarzedo / Mario Campos</td></tr>
+                    <tr><td>Canaã</td><td>Rua Bonfim</td><td>Ibirité</td><td>Regional Sarzedo / Mario Campos</td></tr>
+                    <tr><td>Rio Branco</td><td>Avenida Elias Antônio Issa, 725</td><td>Belo Horizonte</td><td>Regional Pampulha</td></tr>
+                    <tr><td>Nova Pampulha</td><td>Alameda dos Comerciantes, 88</td><td>Contagem</td><td>Céu Azul</td></tr>
+                    <tr><td>Candida Ferreira</td><td>Alameda dos Comerciantes, 88</td><td>Contagem</td><td>Regional Jardim Laguna</td></tr>
+                    <tr><td>Canoas</td><td>Rua C</td><td>Ibirité</td><td>Regional Sarzedo / Mario Campos</td></tr>
+                    <tr><td>Capitão Eduardo</td><td>Rua Pedras Claras, 20</td><td>Belo Horizonte</td><td>Regional São Gabriel</td></tr>
+                    <tr><td>Caracóis de Baixo</td><td>Rua Vereador Lamartine Pinto da Rocha, 332</td><td>Esmeraldas</td><td>Regional Esmeraldas</td></tr>
+                    <tr><td>Cardoso</td><td>Rua Osvaldo Lima e Silva, 1211</td><td>Belo Horizonte</td><td>Barreiro</td></tr>
+                    <tr><td>Casa Branca</td><td>Rua Barreiro, 728</td><td>Belo Horizonte</td><td>Regional Parque Jardim</td></tr>
+                    <tr><td>Castanheiras</td><td>Estrada Velha de Nova Lima, 5</td><td>Belo Horizonte</td><td>Regional Parque Jardim</td></tr>
+                    <tr><td>Parte Alta</td><td>Rua Radialista Juscelino de Souza, 140</td><td>Belo Horizonte</td><td>Céu Azul</td></tr>
+                    <tr><td>Centro Contagem</td><td>Praça Joaquim Antônio da Rocha, 52</td><td>Contagem</td><td>Contagem</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- SEÇÃO TRANSMISSÃO / MÍDIA -->
     <section id="midia" class="container">
-        <h2>Cultos Online & Mídia</h2>
-        <p>Assista às nossas transmissões ao vivo e reveja mensagens anteriores direto do nosso canal.</p>
+        <h2>Cultos Online & Transmissões</h2>
+        <p>Acompanhe nossos vídeos informativos e cultos direto do canal oficial do YouTube.</p>
         <div class="video-container">
-            <!-- Link configurado de forma segura e estática -->
-            <iframe src="https://www.youtube.com/embed/live_stream?channel=UC-YOUR-CHANNEL-ID" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/YxbH31QCCkE" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
-    <!-- SEÇÃO INTERATIVA DA LIDERANÇA -->
-    <section id="lideranca" class="container">
-        <h2>Área da Liderança</h2>
-        <p>A liderança possui um ambiente estruturado para gerenciamento interno e relatórios.</p>
-        <button onclick="mostrarMensagem()">Mais Informações</button>
-        <div id="mensagem" class="msg-box"></div>
-    </section>
-
-    <!-- SEÇÃO CONTATO -->
+    <!-- SEÇÃO CONTATOS TELEFÔNICOS -->
     <section id="contato" class="container">
-        <h2>Endereço & Contato</h2>
-        <div class="contact-box">
-            <p><strong>📍 Templo Central:</strong> Rua São Paulo, 1341 - Centro, Belo Horizonte - MG</p>
-            <p><strong>📧 Secretaria:</strong> contato@assembleiadeuzbh.com</p>
+        <h2>Telefones e Contatos Úteis</h2>
+        <p>Precisa de atendimento ou deseja falar com algum departamento específico? Entre em contato por telefone:</p>
+        <div class="grid-layout">
+            <div class="card">
+                <h3>Atendimento Geral</h3>
+                <p>📞 (31) 3303-4000</p>
+                <p><strong>Secretaria Geral:</strong> (31) 3303-4005</p>
+            </div>
+            <div class="card">
+                <h3>Departamentos</h3>
+                <p><strong>Adolescentes:</strong> (31) 98929-0179</p>
+                <p><strong>EBD:</strong> (31) 99541-4126</p>
+                <p><strong>Jovens:</strong> (31) 99497-0231</p>
+            </div>
+            <div class="card">
+                <h3>Missões e Outros</h3>
+                <p><strong>Missões:</strong> (31) 98483-7255</p>
+                <p><strong>Feminino:</strong> (31) 3303-4019</p>
+                <p><strong>Infantil:</strong> (31) 99666-8188</p>
+            </div>
+            <div class="card">
+                <h3>Instituições e Apoio</h3>
+                <p><strong>Associação Betel:</strong> (31) 3309-9179</p>
+                <p><strong>Fundação Algot Svensson:</strong> (31) 3224-0921</p>
+                <p><strong>Escola Permanente Sião:</strong> (31) 3226-7834</p>
+            </div>
         </div>
     </section>
 </main>
 
 <footer>
-    <p>© 2026 Assembleia de Deus em Belo Horizonte • Espaço Informativo</p>
+    <p>© 2026 Assembleia de Deus em Belo Horizonte • Portal Informativo Prático</p>
 </footer>
 
 <script>
-    function mostrarMensagem(){
-        var msgElement = document.getElementById("mensagem");
-        if (msgElement.style.display === "block") {
-            msgElement.style.display = "none";
+    function toggleConteudo(id) {
+        var elemento = document.getElementById(id);
+        if (elemento.style.display === "block") {
+            elemento.style.display = "none";
         } else {
-            msgElement.innerHTML = "O ambiente da liderança é utilizado para armazenar arquivos, convites e relatórios de forma organizada e segura.";
-            msgElement.style.display = "block";
+            elemento.style.display = "block";
         }
     }
 </script>
