@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assembleia de Deus em BH - Portal Informativo</title>
+    <style>
+        /* CONFIGURAÇÕES GERAIS - LEVE E RESPONSIVO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa; /* Fundo claro e clean */
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* HEADER INSTITUCIONAL */
+        header {
+            background: #ffffff;
+            border-bottom: 3px solid #d94111; /* Linha de destaque Laranja */
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #2b2b2b;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        header p {
+            color: #990000; /* Vermelho Formal */
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* MENU DE NAVEGAÇÃO STICKY */
+        nav {
+            background: #1e2229; /* Tom escuro formal para dar contraste */
+            padding: 12px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #ffcc00; /* Destaque Amarelo Ouro no foco */
+        }
+
+        /* BANNER COM GRADIENTE LARANJA/VERMELHO */
+        .banner {
+            background: linear-gradient(135deg, #d94111 0%, #990000 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .banner h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .banner p {
+            font-size: 1rem;
+            color: #ffe6cc;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* BLOCOS DE CONTEÚDO */
+        .container {
+            padding: 45px 20px;
+            max-width: 960px;
+            margin: auto;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            color: #2b2b2b;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 6px;
+        }
+
+        /* Detalhe embaixo dos títulos */
+        .container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #d94111;
+            border-radius: 2px;
+        }
+
+        .container p {
+            color: #555555;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        /* GRID TOTALMENTE RESPONSIVA (Sem quebras) */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #d94111;
+        }
+
+        .card h3 {
+            color: #2b2b2b;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .event-day {
+            color: #990000 !important; /* Vermelho nos dias */
+            font-weight: 600;
+            font-size: 0.9rem !important;
+        }
+
+        .card.department p {
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        /* REPRODUTOR DE VÍDEO SEGURO E LEVE */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Mantém proporção 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* BOTÃO INTERATIVO DA LIDERANÇA */
+        button {
+            background: #d94111;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.2s ease;
+        }
+
+        button:hover {
+            background: #b8330c;
+        }
+
+        .msg-box {
+            margin-top: 15px;
+            padding: 15px;
+            background: #ffffff;
+            border-left: 4px solid #990000;
+            border-radius: 0 4px 4px 0;
+            color: #444444;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: none; /* Inicia oculto */
+        }
+
+        /* INFORMAÇÕES DE CONTATO */
+        .contact-box p {
+            margin-bottom: 10px;
+            color: #555555;
+        }
+
+        .contact-box strong {
+            color: #2b2b2b;
+        }
+
+        /* RODAPÉ SUTIL */
+        footer {
+            background: #1e2229;
+            color: #a0aec0;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            font-size: 0.85rem;
+        }
+
+        /* AJUSTES PARA TELAS MENORES (CELULAR) */
+        @media(max-width: 768px) {
+            nav {
+                padding: 8px;
+            }
+            nav a {
+                display: inline-block;
+                margin: 5px 10px;
+                font-size: 0.8rem;
+            }
+            .banner h2 {
+                font-size: 1.6rem;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>Assembleia de Deus</h1>
+        <p>Ministério de Belo Horizonte</p>
+    </div>
+</header>
+
+<nav>
+    <a href="#sobre">Nossa História</a>
+    <a href="#cultos">Cultos & Agenda</a>
+    <a href="#ministerios">Ministérios</a>
+    <a href="#midia">Cultos Online</a>
+    <a href="#lideranca">Liderança</a>
+    <a href="#contato">Contato</a>
+</nav>
+
+<section class="banner">
+    <div class="banner-content">
+        <h2>Bem-vindo à Assembleia de Deus - Central BH</h2>
+        <p>Uma igreja viva que adora ao Senhor e serve à comunidade com amor.</p>
+    </div>
+</section>
+
+<main>
+    <!-- SEÇÃO SOBRE -->
+    <section id="sobre" class="container">
+        <h2>Sobre a Igreja</h2>
+        <p>
+            A Assembleia de Deus em Belo Horizonte iniciou sua trajetória em 1927. Desde então, sob a liderança do Ministério, tem sido um farol de evangelização, ação social e edificação espiritual na capital mineira e região metropolitana.
+        </p>
+    </section>
+
+    <!-- SEÇÃO CULTOS -->
+    <section id="cultos" class="container">
+        <h2>Horários dos Cultos</h2>
+        <div class="events-grid">
+            <div class="card">
+                <h3>Culto de Doutrina & Ensino</h3>
+                <p class="event-day">🗓️ Terça-feira às 19h30</p>
+            </div>
+            <div class="card">
+                <h3>Libertação & Oração</h3>
+                <p class="event-day">🗓️ Quinta-feira às 19h30</p>
+            </div>
+            <div class="card">
+                <h3>Escola Bíblica Dominical (EBD)</h3>
+                <p class="event-day">🗓️ Domingo às 09h00</p>
+            </div>
+            <div class="card">
+                <h3>Culto de Celebração da Família</h3>
+                <p class="event-day">🗓️ Domingo às 18h00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO MINISTÉRIOS -->
+    <section id="ministerios" class="container">
+        <h2>Nossos Ministérios</h2>
+        <div class="events-grid">
+            <div class="card department">
+                <h3>UMADBH</h3>
+                <p>União de Mocidade da Assembleia de Deus de BH</p>
+            </div>
+            <div class="card department">
+                <h3>UFADBH</h3>
+                <p>União Feminina (Círculo de Oração)</p>
+            </div>
+            <div class="card department">
+                <h3>UADBH</h3>
+                <p>Ministério com Crianças e Juniores</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO MÍDIA / TRANSMISSÕES -->
+    <section id="midia" class="container">
+        <h2>Cultos Online & Mídia</h2>
+        <p>Assista às nossas transmissões ao vivo e reveja mensagens anteriores direto do nosso canal.</p>
+        <div class="video-container">
+            <!-- Link configurado de forma segura e estática -->
+            <iframe src="https://www.youtube.com/embed/live_stream?channel=UC-YOUR-CHANNEL-ID" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- SEÇÃO INTERATIVA DA LIDERANÇA -->
+    <section id="lideranca" class="container">
+        <h2>Área da Liderança</h2>
+        <p>A liderança possui um ambiente estruturado para gerenciamento interno e relatórios.</p>
+        <button onclick="mostrarMensagem()">Mais Informações</button>
+        <div id="mensagem" class="msg-box"></div>
+    </section>
+
+    <!-- SEÇÃO CONTATO -->
+    <section id="contato" class="container">
+        <h2>Endereço & Contato</h2>
+        <div class="contact-box">
+            <p><strong>📍 Templo Central:</strong> Rua São Paulo, 1341 - Centro, Belo Horizonte - MG</p>
+            <p><strong>📧 Secretaria:</strong> contato@assembleiadeuzbh.com</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Assembleia de Deus em Belo Horizonte • Espaço Informativo</p>
+</footer>
+
+<script>
+    function mostrarMensagem(){
+        var msgElement = document.getElementById("mensagem");
+        if (msgElement.style.display === "block") {
+            msgElement.style.display = "none";
+        } else {
+            msgElement.innerHTML = "O ambiente da liderança é utilizado para armazenar arquivos, convites e relatórios de forma organizada e segura.";
+            msgElement.style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>
